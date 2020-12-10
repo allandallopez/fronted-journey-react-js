@@ -1,11 +1,60 @@
 import React from 'react'
+import NumberFormat from 'react-number-format'
+
 import './Product.css'
 
 export default class Product extends React.Component {
+	state = {
+		product: {
+			data: [
+				{
+					id: 1,
+					title: 'Laptop',
+					price: 100000,
+					desc: 'steve jobs dreams',
+					imageURL: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/152137-laptops-review-apple-macbook-pro-2020-review-image1-qy49zfkn53-jpg.webp',
+				},
+				{
+					id: 2,
+					title: 'Keyboard',
+					price: 100000,
+					desc: 'Kechron k2 the best keyboard ever',
+					imageURL: 'https://dominico.id/wp-content/uploads/2020/06/photo6280801148667538149-e1592060630412-1024x768.jpg',
+				},
+				{
+					id: 3,
+					title: 'Mouse',
+					price: 100000,
+					desc: 'Razer Naga Trinity',
+					imageURL: 'https://i.rtings.com/images/reviews/mouse/razer/naga-trinity/naga-trinity-design-large.jpg',
+				},
+			],
+			isLoading: true,
+		},
+	}
+
 	render() {
+		const { product } = this.state
 		return (
-			<div>
-				<p>PRODUCT SCREEN</p>
+			<div className='container'>
+				<div className='header-container'>
+					<div className='top-title'>PRODUCT SCREEN</div>
+				</div>
+
+				<div className='item-container'>
+					{product.data.map((item) => (
+						<div className='item-card'>
+							<img className='img-items' src={item.imageURL} />
+							<div className='item-card-bottom'>
+								<div className='title-items'>{item.title}</div>
+								<div className='mid-title'>{item.desc}</div>
+								<div>
+									<NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		)
 	}

@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import './NavBar.css'
+
 export default class NavBar extends Component {
 	render() {
 		return (
-			<div>
-				<div>
-					<Link to='/'>Home </Link>
+			<nav className='navBar'>
+				<div className='left-title'>My inventory app</div>
+				<div className='navbar-container'>
+					<div className='navbar-items'>
+						<Link to='/'>Home </Link>
+					</div>
+					<div className='navbar-items'>
+						<Link to='/product'> Product </Link>
+					</div>
+					<div className='navbar-items'>
+						<Link to='/categories'> Category </Link>
+					</div>
 				</div>
-				<div>
-					<Link to='/product'>Your Product </Link>
-				</div>
-				<div>
-					<Link to='/categories'>The category </Link>
-				</div>
-			</div>
+			</nav>
 		)
 	}
 }
