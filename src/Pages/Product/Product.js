@@ -2,6 +2,7 @@ import React from 'react'
 import NumberFormat from 'react-number-format'
 
 import './Product.css'
+import ModalDetail from './Component/ModalEditProduct/ModalDetail'
 
 export default class Product extends React.Component {
 	state = {
@@ -31,14 +32,20 @@ export default class Product extends React.Component {
 			],
 			isLoading: true,
 		},
+		isShowModal: false,
+		previewData: {},
+	}
+
+	changeState = (param) => {
+		this.setState(param)
 	}
 
 	render() {
-		const { product } = this.state
+		const { product, isShowModal, previewData } = this.state
 		return (
 			<div className='container'>
 				<div className='header-container'>
-					<div className='top-title'>PRODUCT SCREEN</div>
+					<div className='top-title'>MY PRODUCT</div>
 				</div>
 
 				<div className='item-container'>
@@ -47,14 +54,17 @@ export default class Product extends React.Component {
 							<img className='img-items' src={item.imageURL} />
 							<div className='item-card-bottom'>
 								<div className='title-items'>{item.title}</div>
-								<div className='mid-title'>{item.desc}</div>
-								<div>
+								{/* <div className='mid-title'>{item.desc}</div> */}
+								<div className='bottom-container'>
 									<NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+									<button onClick={() => this.setState({ previewData: item }, () => this.setState({ isShowModal: true }))}>Show Detail</button>
 								</div>
 							</div>
 						</div>
 					))}
 				</div>
+
+				<ModalDetail data={previewData} isShowModal={isShowModal} onClose={() => this.setState({ isShowModal: false })} />
 			</div>
 		)
 	}
