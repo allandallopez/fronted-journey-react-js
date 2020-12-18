@@ -18,7 +18,7 @@ export default class Product extends React.Component {
 					id: 2,
 					title: 'Keyboard',
 					price: 100000,
-					desc: 'Kechron k2 the best keyboard ever',
+					desc: 'Kechron k2 the comfy keyboard ever',
 					imageURL: 'https://dominico.id/wp-content/uploads/2020/06/photo6280801148667538149-e1592060630412-1024x768.jpg',
 				},
 				{
