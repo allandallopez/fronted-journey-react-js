@@ -1,0 +1,20 @@
+.container {
+   padding: 0px 100px 0px 100px;
+}
+
+.header-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.top-title {
+   font-size: 24px;
+   font-family: 'Comfortaa';
+}
+
+.background {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
