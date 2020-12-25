@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
+import NumberFormat from 'react-number-format'
 
 export default class ModalDetail extends Component {
 	render() {
+		const { isShowModal, onClose, data } = this.props
 		return (
-			<Modal isOpen={this.props.isShowModal} onRequestClose={this.props.onClose} style={styles} contentLabel='Example Modal'>
+			<Modal isOpen={isShowModal} onRequestClose={onClose} style={styles} contentLabel='Example Modal'>
 				<div style={styles.header}>
 					<h1>DETAIL PRODUCT</h1>
 				</div>
@@ -18,11 +20,13 @@ export default class ModalDetail extends Component {
 				</div>
 
 				<div style={styles.formInput}>
-					<div style={styles.formTitle}>Description :</div>
+					<div style={styles.formTitle}>Description : {data.desc}</div>
 				</div>
 
 				<div style={styles.formInput}>
-					<div style={{ ...styles.formTitle, marginRight: '3.6rem' }}>Price :</div>
+					<div>
+						Price : <NumberFormat value={data.price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+					</div>
 				</div>
 
 				<div style={styles.bottomContainer}>

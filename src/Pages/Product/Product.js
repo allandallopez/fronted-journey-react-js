@@ -11,7 +11,7 @@ export default class Product extends React.Component {
 				{
 					id: 1,
 					title: 'Laptop',
-					price: 100000,
+					price: 10000,
 					desc: 'steve jobs dreams',
 					imageURL: 'https://cdn.pocket-lint.com/r/s/970x/assets/images/152137-laptops-review-apple-macbook-pro-2020-review-image1-qy49zfkn53-jpg.webp',
 				},
@@ -30,7 +30,6 @@ export default class Product extends React.Component {
 					imageURL: 'https://i.rtings.com/images/reviews/mouse/razer/naga-trinity/naga-trinity-design-large.jpg',
 				},
 			],
-			isLoading: true,
 		},
 		isShowModal: false,
 		previewData: {},
